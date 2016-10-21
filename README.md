@@ -14,7 +14,7 @@ render処理が走ってブラウザにresponseが帰ると思うのですが、
 `controller.rb`:  
 ```ruby
 def index
-  # コレはlazy_content_tagからのみ呼ばれる処理 ※引数は目印
+  # コレはviewのlazy_content_tagからのみ呼ばれる処理 ※引数は目印
   lazy_respond_to(:gender_chart) do
     @chart = xxx
     # 最後にviewから渡された処理の結果を勝手に返す
@@ -26,7 +26,7 @@ end
 `index.html.erb`:
 ```erb
 
-<%= Ajax経由で呼び出し元アクションの lazy_respond_to 内の処理結果を受け取り、囲みタグの中に inner html する -%>
+<%= Ajaxで呼び出し元アクションの lazy_respond_to ブロック内の処理結果を受け取り、囲みタグの中に inner html する -%>
 <%= lazy_content_tag :div, :gender_chart, class: “hoge" do %>
   <% high_chart(“hogeid", @chart) %>
 <% end %>
