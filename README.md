@@ -28,7 +28,7 @@ end
 
 <%= Ajaxで呼び出し元アクションの lazy_respond_to ブロック内の処理結果を受け取り、囲みタグの中に inner html する -%>
 <%= lazy_content_tag :div, :gender_chart, class: “hoge" do %>
-  <% high_chart(“hogeid", @chart) %>
+  <% high_chart(“hogeid", @chart) # この処理をajaxでcontrollerに伝えるのが無理？文字列で送るのはアウツな気がする %>
 <% end %>
 ```
 
